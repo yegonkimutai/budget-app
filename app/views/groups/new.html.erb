@@ -1,0 +1,26 @@
+<h1>Add new Category</h1>
+<% if @group.errors.any? %>
+  <div class="post-errors-box">
+    <p><%= pluralize(@group.errors.count, "error") %> found:</p>
+
+    <ul class="food-errors-ul">
+      <% @group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<%= form_with path: new_group_path, model: @group, method: :post do |form| %>
+  <div class="d-flex flex-column mb-3">
+  <div class="col">
+  <%= form.label :name%>
+  <%= form.text_field :name%>
+  </div>
+  <div class="col">
+  <%= form.label :icon%>
+  <%= form.text_field :icon%>
+  </div>
+  <div class="col">
+  <%= form.submit class: "btn btn-primary" %>
+</div>
+<% end %>

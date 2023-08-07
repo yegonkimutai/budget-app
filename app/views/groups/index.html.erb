@@ -1,0 +1,14 @@
+<h1>Transactions</h1>
+
+<button><%= link_to 'Add Category', new_group_path(@group) %></button>
+
+<% @groups.each do |grp| %>
+    <%= link_to entities_path do %>
+        <div>
+            <span><%= grp.icon %></span>
+            <span><%= grp.name %></span>
+            <span><%= grp.created_at %></span>
+        </div>
+        <% end %>    
+<% end %>
+
