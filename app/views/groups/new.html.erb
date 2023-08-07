@@ -11,18 +11,19 @@
 <% end %>
 
 <%= form_with path: new_group_path, model: @group, method: :post do |form| %>
-  <div class="d-flex flex-column mb-3">
-  <div class="col">
+  <div class="d-flex flex-column">
+  <div class="col mb-3">
   <%= form.label :name%>
   <%= form.text_field :name%>
   </div>
-  <div class="col">
+  <div class="col mb-3">
   <%= form.label :icon%>
   <%= form.text_field :icon%>
   </div>
-  <div class="col">
+  <div class="col mb-3 ms-2">
   <%= form.submit class: "btn btn-primary" %>
+  </div>
 </div>
 <% end %>
 
-<%= link_to 'Back', root_path, class: "btn btn-secondary" %>
+<%= link_to 'Back', root_path, class: "btn btn-danger ms-2" %>

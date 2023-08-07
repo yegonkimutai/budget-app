@@ -11,23 +11,23 @@
 <% end %>
 
 <%= form_with url: "/groups/#{params[:group_id]}/entities", model: @entity, method: :post do |form| %>
-  <div class="d-flex flex-column mb-3">
-  <div class="col">
+<div class="d-flex flex-column">
+  <div class="col mb-3">
   <%= form.label :name%>
   <%= form.text_field :name%>
   </div>
-  <div class="col">
+  <div class="col mb-3">
   <%= form.label :amount%>
   <%= form.text_field :amount%>
   </div>
-  <div>
-    <%= form.label :groups_id %>
-    <%= form.select :group_id, Group.all.map{ |g| [g.name, g.id]}, multiple:true %>
+  <div class="col mb-3">
+  <%= form.label :groups_id %>
+  <%= form.select :group_id, Group.all.map{ |g| [g.name, g.id]}, multiple:true %>
   </div>
-  </div>
-  <div class="col">
+  <div class="col mb-3 ms-2">
   <%= form.submit 'Save', class: "btn btn-primary" %>
+  </div>
 </div>
 <% end %>
 
-<%= link_to 'Back', group_entities_path, class: "btn btn-secondary" %>
+<%= link_to 'Back', group_entities_path, class: "btn btn-danger ms-2" %>

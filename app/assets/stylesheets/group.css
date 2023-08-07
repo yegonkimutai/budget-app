@@ -1,0 +1,12 @@
+.cont {
+  text-decoration: none;
+  color: #000;
+}
+
+.cont-main,
+.cont-trans  {
+  cursor: pointer;
+  border: 2px solid;
+  margin-top: 1.5rem;
+}
+

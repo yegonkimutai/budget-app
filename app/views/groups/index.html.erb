@@ -1,13 +1,19 @@
-<h1>Transactions</h1>
+<h1 class="text-center">Transactions</h1>
 
-<button><%= link_to 'Add Category', new_group_path(@group) %></button>
+<button class='ms-5'><%= link_to 'Add Category', new_group_path(@group), class: 'btn p-2' %></button>
 
 <% @groups.each do |grp| %>
-    <%= link_to group_entities_path(grp) do %>
-        <div>
-            <span><%= grp.icon %></span>
-            <span><%= grp.name %></span>
-            <span><%= grp.created_at %></span>
+    <%= link_to group_entities_path(grp), class: 'cont' do %>
+        <div class="container p-2 cont-main">
+        <div class="row">
+            <div class="col-1">
+                <p><%= grp.icon %></p>
+            </div>
+            <div class="col-6">
+                <p><%= grp.name %></p>
+                <p><%= grp.created_at %></p>
+            </div>
+        </div>
         </div>
         <% end %>    
 <% end %>
