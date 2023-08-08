@@ -3,7 +3,7 @@
 <button class='ms-5'><%= link_to 'Add Category', new_group_path(@group), class: 'btn p-2' %></button>
 
 <% @groups.each do |grp| %>
-    <%= link_to group_entities_path(grp), class: 'cont' do %>
+    <%= link_to group_items_path(grp), class: 'cont' do %>
         <div class="container p-2 cont-main">
         <div class="row">
             <div class="col-1">

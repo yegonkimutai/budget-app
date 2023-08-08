@@ -1,7 +1,7 @@
-class Entity < ApplicationRecord
-  belongs_to :user
-  has_many :groups_entities, dependent: :destroy
-  has_and_belongs_to_many :groups
+class Item < ApplicationRecord
+  belongs_to :author, class_name: 'User'
+  has_many :groups_item, dependent: :destroy
+  has_many :groups, through: :groups_item
 
   validates :name, presence: true
   validates :amount, presence: true, numericality: { greater_than: 0 }
