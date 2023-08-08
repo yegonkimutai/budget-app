@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.require(:item).permit(:name, :amount)
+        params.require(:item).permit(:name, :amount, :group_ids)
     end
 
     def set_group

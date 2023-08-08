@@ -22,7 +22,7 @@
   </div>
   <div class="col mb-3">
   <%= form.label :group_ids %>
-  <%= form.collection_select :group_id, Group.all, :id, :name, {}, class: "form-select" %>
+  <%= form.collection_select :group_ids, Group.all, :id, :name, { }, class: "form-select" %>
   </div>
   <div class="col mb-3 ms-2">
   <%= form.submit 'Save', class: "btn btn-primary" %>
