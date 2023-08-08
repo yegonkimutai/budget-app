@@ -10,8 +10,8 @@
                 <p><%= grp.icon %></p>
             </div>
             <div class="col-6">
-                <p><%= grp.name %></p>
-                <p><%= grp.created_at %></p>
+                <p><%= grp.name %></p> <h4>$<%= grp.total_value %></h4>
+                <p><%= "#{grp.created_at.day} #{grp.created_at.strftime("%b")} #{grp.created_at.year}" %></p>
             </div>
         </div>
         </div>

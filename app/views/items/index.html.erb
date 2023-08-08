@@ -1,4 +1,7 @@
-<h1 class='text-center'>All Transactions for <%= @group.name %></h1>
+<div class = "transaction_group">
+  <h2><%= @group.name %></h2>
+  <h2>$<%= @group.total_value %></h2>
+</div>
 
 <button class='ms-5'><%= link_to 'Add Transaction', new_group_item_path(@group), class: 'btn p-1' %></button>
 
@@ -7,7 +10,7 @@
   <div class="container p-3 cont-trans">
         <div class="row">
             <p>Transaction by <%= ent.name %></p>
-            <p><%= ent.created_at %></p>
+            <p><%= "#{ent.created_at.day} #{ent.created_at.strftime("%b")} #{ent.created_at.year}" %></p>
             </div>
         </div>
 <% end %>

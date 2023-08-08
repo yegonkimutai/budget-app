@@ -10,4 +10,8 @@ class Group < ApplicationRecord
     def self.display_groups
         order(created_at: :desc)
     end
+
+    def total_value
+        items.sum(:amount)
+      end
 end
