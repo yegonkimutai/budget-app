@@ -21,8 +21,8 @@
   <%= form.text_field :amount%>
   </div>
   <div class="col mb-3">
-  <%= form.label :groups_id %>
-  <%= form.select :group_id, Group.all.map{ |g| [g.name, g.id]}, multiple:true %>
+  <%= form.label :groups_ids %>
+  <%= form.collection_select :group_ids, Group.all, :id, :name, {} %>
   </div>
   <div class="col mb-3 ms-2">
   <%= form.submit 'Save', class: "btn btn-primary" %>

@@ -2,20 +2,18 @@ class GroupsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @groups = Group.display_groups
+        @groups = current_user.groups.display_groups
     end
 
     def new
-        @group = Group.new
+        @group = current_user.groups.build
     end
 
     def show
-        @group = Group.find_by_id(params[:id])
     end
     
     def create
-        @group = Group.create(group_params)
-        @group.user_id = current_user.id
+        @group = current_user.groups.build(group_params)
     
         if @group.save
           redirect_to groups_path
@@ -27,6 +25,6 @@ class GroupsController < ApplicationController
     private
 
     def group_params
-        params.require(:group).permit(:id, :name, :icon)
+        params.require(:group).permit(:user_id, :name, :icon)
     end
 end

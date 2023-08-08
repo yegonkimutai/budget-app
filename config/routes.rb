@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "groups#index"
+  
+  devise_scope :user do
+    authenticated :user do
+      root to: 'groups#index', as: :authenticated_root
+    end
+
+    unauthenticated :user do
+      root to: 'splash#splash', as: :unauthenticated_root
+    end
+  end
+
 
   resources :groups do
     resources :entities
