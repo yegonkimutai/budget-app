@@ -1,0 +1,33 @@
+<h1>Add new Transaction</h1>
+<% if @item.errors.any? %>
+  <div class="post-errors-box">
+    <p><%= pluralize(@group.errors.count, "error") %> found:</p>
+
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<%= form_with url: "/groups/#{params[:group_id]}/items", model: @item, method: :post do |form| %>
+<div class="d-flex flex-column">
+  <div class="col mb-3">
+  <%= form.label :name%>
+  <%= form.text_field :name%>
+  </div>
+  <div class="col mb-3">
+  <%= form.label :amount%>
+  <%= form.text_field :amount%>
+  </div>
+  <div>
+  <%= form.label :group_ids %>
+  <%= form.collection_select :group_ids, Group.all, :id, :name, { }, class: "form-select" %>
+  </div>
+  <div class="col m-3">
+  <%= form.submit 'Save', class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>
+
+<%= link_to 'Back', group_items_path, class: "btn btn-danger m-3" %>
