@@ -1,9 +1,11 @@
-<div class = "transaction_group">
+<%= render 'shared/navbar', title: "#{@items.name}", back_link: groups_path %>
+
+<div class = "d-flex justify-content-between p-3">
   <h2><%= @group.name %></h2>
-  <h2>$<%= @group.total_value %></h2>
+  <h3>$<%= @group.total_value %></h3>
 </div>
 
-<button class='ms-5'><%= link_to 'Add Transaction', new_group_item_path(@group), class: 'btn p-1' %></button>
+<button class='ms-3'><%= link_to 'Add Transaction', new_group_item_path(@group), class: 'btn p-1' %></button>
 
 <div class = "transactions_container">
 <% @items.includes(:groups).each do |ent| %>
@@ -15,5 +17,3 @@
         </div>
 <% end %>
 </div>
-
-<button class="btn btn-danger ms-2 mt-3"><%= link_to 'Back', groups_path, class: 'btn' %></button>

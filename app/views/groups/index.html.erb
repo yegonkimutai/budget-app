@@ -1,20 +1,23 @@
-<h1 class="text-center">Transactions</h1>
-
-<button class='ms-5'><%= link_to 'Add Category', new_group_path(@group), class: 'btn p-2' %></button>
+<%= render 'shared/navbar', title: "#{@groups.name}", back_link: false %>
 
 <% @groups.each do |grp| %>
     <%= link_to group_items_path(grp), class: 'cont' do %>
         <div class="container p-2 cont-main">
         <div class="row">
-            <div class="col-1">
+            <div class="col-3 icon">
                 <p><%= grp.icon %></p>
             </div>
             <div class="col-6">
-                <p><%= grp.name %></p> <h4>$<%= grp.total_value %></h4>
+            <div class="d-flex justify-content-between">
+            <p><%= grp.name %></p> 
+            <h4>$<%= grp.total_value %></h4>
+            </div>
                 <p><%= "#{grp.created_at.day} #{grp.created_at.strftime("%b")} #{grp.created_at.year}" %></p>
             </div>
         </div>
         </div>
         <% end %>    
 <% end %>
+
+<div class="group_btn"><%= link_to 'Add Category', new_group_path(@group), class: 'add-btn' %></div>
 

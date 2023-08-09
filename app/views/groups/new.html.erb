@@ -14,11 +14,11 @@
   <div class="d-flex flex-column">
   <div class="col mb-3">
   <%= form.label :name%>
-  <%= form.text_field :name%>
+  <%= form.text_field :name, placeholder: 'Group name'%>
   </div>
   <div class="col mb-3">
   <%= form.label :icon%>
-  <%= form.text_field :icon%>
+  <%= form.text_field :icon, placeholder: 'url'%>
   </div>
   <div class="col mb-3 ms-2">
   <%= form.submit class: "btn btn-primary" %>
