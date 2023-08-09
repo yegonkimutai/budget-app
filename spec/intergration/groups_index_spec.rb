@@ -10,13 +10,13 @@ RSpec.feature 'Groups Index Page' do
     sign_in user
     visit groups_path
 
-    expect(page).to have_content('Transactions')
+    expect(page).to have_content('Group')
   end
 
-  scenario "displays 'Add Category' button" do
+  scenario "displays 'Add New Group' button" do
     sign_in user
     visit groups_path
 
-    expect(page).to have_link('Add Category', href: new_group_path)
+    expect(page).to have_link('Add New Group', href: new_group_path)
   end
 end
