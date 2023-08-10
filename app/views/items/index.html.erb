@@ -12,25 +12,22 @@
         </div>
       </div>
     </div>
-    
+
     <div class="category-amount">
-      $ <%= @group.items.sum(:amount) %>
-    </div>
-    
+    $ <%= @group.items.sum(:amount) %>
+  </div>
   </div>
 
   <div class="items-list">
     <% @items.each do |item| %>
-      <div class="item">
         <div class="item-section">
           <div class="item-name">
-            <%= item.name %>
+            Transaction <%= item.name %>
           </div>
           <div class="item-amount">
-            $ <%= item.amount %>
+            <p><%= "#{item.created_at.day} #{item.created_at.strftime("%b")} #{item.created_at.year}" %></p>
           </div>
         </div>
-      </div>
     <% end %>
   </div>
 

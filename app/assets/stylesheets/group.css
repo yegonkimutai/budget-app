@@ -7,7 +7,7 @@
 }
 
 .group {
-  width: 90%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -35,9 +35,7 @@
 }
 
 .details_container {
-  text-align: center;
   display: flex;
-  align-items: center;
   gap: 20px;
 }
 
@@ -47,6 +45,11 @@
   border-radius: 10%;
   object-fit: cover;
   display: block;
+}
+
+.cont {
+  text-decoration: none;
+  color: #000;
 }
 
 .date {
@@ -75,19 +78,8 @@ button {
 }
 
 /* Add New Group button */
-.input-field input[type="number"] {
-  width: 90%;
-  height: 3rem;
-  padding: 10px;
-  border: 1px solid #dfdede;
-  border-radius: 2px;
-  font-size: 1rem;
-  color: #080808;
-  margin: 5px auto;
-}
-
-.input-field input[type="text"] {
-  width: 90%;
+.input-field {
+  width: 95%;
   height: 3rem;
   padding: 10px;
   border: 1px solid #dfdede;
@@ -99,6 +91,16 @@ button {
 
 form {
   padding: 0 10px;
+}
+
+.i-control {
+  border: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #080808;
+  font-size: 1.3rem;
 }
 
 /* Desktop Styles */

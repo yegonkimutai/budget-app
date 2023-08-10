@@ -2,13 +2,11 @@
 
 <%=form_for @group, html: {class:""} do |f| %>
   <div class="input-field">
-    <%= f.label :name %>
-    <%= f.text_field :name, {required: true} %>
+    <%= f.text_field :name, placeholder: 'Name', class: 'i-control' %>
   </div>
 
   <div class="input-field">
-    <%= f.label :icon %>
-    <%= f.url_field :icon, class: "form-control", placeholder: "url"%>
+    <%= f.url_field :icon, class: 'i-control', placeholder: "URL"%>
   </div>
 
   <div class="add-btn">
