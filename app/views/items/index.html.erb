@@ -25,7 +25,7 @@
             Transaction <%= item.name %>
           </div>
           <div class="item-amount">
-            <p><%= "#{item.created_at.day} #{item.created_at.strftime("%b")} #{item.created_at.year}" %></p>
+            <p><%= "#{item.created_at.day} #{item.created_at.strftime("%b")} #{item.created_at.year} at #{item.created_at.strftime('%H:%M:%S')}" %></p>
           </div>
         </div>
     <% end %>
