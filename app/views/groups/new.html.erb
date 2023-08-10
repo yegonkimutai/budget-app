@@ -1,29 +1,15 @@
-<h1>Add new Category</h1>
-<% if @group.errors.any? %>
-  <div class="post-errors-box">
-    <p><%= pluralize(@group.errors.count, "error") %> found:</p>
+<%= render 'shared/navbar', back_link: groups_path, title:"New Category" %>
 
-    <ul class="food-errors-ul">
-      <% @group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+<%=form_for @group, html: {class:""} do |f| %>
+  <div class="input-field">
+    <%= f.text_field :name, placeholder: 'Name', class: 'i-control' %>
+  </div>
+
+  <div class="input-field">
+    <%= f.url_field :icon, class: 'i-control', placeholder: "URL"%>
+  </div>
+
+  <div class="add-btn">
+    <%= f.submit %>
+  </div>
 <% end %>
-
-<%= form_with path: new_group_path, model: @group, method: :post do |form| %>
-  <div class="d-flex flex-column">
-  <div class="col mb-3">
-  <%= form.label :name%>
-  <%= form.text_field :name, placeholder: 'Group name'%>
-  </div>
-  <div class="col mb-3">
-  <%= form.label :icon%>
-  <%= form.text_field :icon, placeholder: 'url'%>
-  </div>
-  <div class="col mb-3 ms-2">
-  <%= form.submit class: "btn btn-primary" %>
-  </div>
-</div>
-<% end %>
-
-<%= link_to 'Back', groups_path, class: "btn btn-danger ms-2" %>

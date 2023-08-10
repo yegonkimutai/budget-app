@@ -1,33 +1,31 @@
-<h1>Add new Transaction</h1>
-<% if @item.errors.any? %>
-  <div class="post-errors-box">
-    <p><%= pluralize(@group.errors.count, "error") %> found:</p>
+<%= render 'shared/navbar', back_link: group_items_path, title: "New Transaction" %>
 
-    <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<%= form_with model: [@group, @item], class:"add-form" do |form| %>
+
+<div class="form-fields">
+  <div class="input-field">
+    <%= form.text_field :name, class: "i-control", placeholder: 'Name' %>
+    <% if @item.errors.has_key?(:name) %>
+        <p class="error-message"><%= @item.errors[:name].first %></p>
       <% end %>
-    </ul>
-<% end %>
+  </div>
 
-<%= form_with url: "/groups/#{params[:group_id]}/items", model: @item, method: :post do |form| %>
-<div class="d-flex flex-column">
-  <div class="col mb-3">
-  <%= form.label :name%>
-  <%= form.text_field :name%>
+  <div class="input-field">
+    <%= form.number_field :amount, class: "i-control", placeholder: 'Amount' %>
+    <% if @item.errors.has_key?(:amount) %>
+        <p class="error-message"><%= @item.errors[:amount].first %></p>
+      <% end %>
   </div>
-  <div class="col mb-3">
-  <%= form.label :amount%>
-  <%= form.text_field :amount%>
-  </div>
-  <div>
-  <%= form.label :group_ids %>
-  <%= form.collection_select :group_ids, Group.all, :id, :name, { }, class: "form-select" %>
-  </div>
-  <div class="col m-3">
-  <%= form.submit 'Save', class: "btn btn-primary" %>
-  </div>
-</div>
-<% end %>
 
-<%= link_to 'Back', group_items_path, class: "btn btn-danger m-3" %>
+  <div class="input-field">
+    <%= form.collection_select :group_ids, Group.all, :id, :name, {}, class: "form-select i-control" %>
+     <% if @item.errors.has_key?(:group_ids) %>
+        <p class="error-message"><%= @item.errors[:group_ids].first %></p>
+      <% end %>
+  </div>
+  </div>
+
+  <div class="add-btn">
+  <%= form.submit "Save" %>
+  </div>
+<% end %>

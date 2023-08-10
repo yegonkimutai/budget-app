@@ -1,23 +1,21 @@
 <%= render 'shared/navbar', title: "#{@groups.name}", back_link: false %>
+<div class = "groups_container">
+  <% @groups.each do |group| %>
+    <div class =  "group">
+    <%= link_to group_items_path(group), class: 'cont' do %>
+      <div class = "details_container d-flex justify-content-around">
+      <img src="<%= group.icon %>" alt="group Icon" class="group-icon">
+        <h2><%= group.name %><h2>
+        <h3>$<%= group.total_value %></h3>
+      </div>
+      <div class = "group_actions">
+      <p class="date"><%= "#{group.created_at.day} #{group.created_at.strftime("%b")} #{group.created_at.year}" %></p>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
 
-<% @groups.each do |grp| %>
-    <%= link_to group_items_path(grp), class: 'cont' do %>
-        <div class="container p-2 cont-main">
-        <div class="row">
-            <div class="col-3 icon">
-                <p><%= grp.icon %></p>
-            </div>
-            <div class="col-6">
-            <div class="d-flex justify-content-between">
-            <p><%= grp.name %></p> 
-            <h4>$<%= grp.total_value %></h4>
-            </div>
-                <p><%= "#{grp.created_at.day} #{grp.created_at.strftime("%b")} #{grp.created_at.year}" %></p>
-            </div>
-        </div>
-        </div>
-        <% end %>    
-<% end %>
-
-<div class="group_btn"><%= link_to 'Add Category', new_group_path(@group), class: 'add-btn' %></div>
-
+<div class="add-btn">
+  <%= link_to "Add New Group", new_group_path, class: 'add-link' %>
+</div>

@@ -6,9 +6,9 @@ RSpec.describe 'Category Transactions', type: :feature do
 
   before do
     visit new_user_session_path
-    fill_in 'Email', with: user.email
+    fill_in 'Email Address', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Log in'
+    click_button 'Login'
 
     group.items.create(name: 'Transaction 1', amount: 50)
     group.items.create(name: 'Transaction 2', amount: 75)
@@ -17,7 +17,7 @@ RSpec.describe 'Category Transactions', type: :feature do
   end
 
   it 'navigates to the "Add a New Transaction" page when the link is clicked' do
-    click_link('Add Transaction')
+    click_link('ADD TRANSACTION')
     expect(page).to have_current_path(new_group_item_path(group))
   end
 end
